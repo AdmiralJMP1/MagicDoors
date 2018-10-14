@@ -18,11 +18,6 @@ void setup()
 volatile static long lastCode = 0;
 
 void loop() {
-  // это раскомментить и вместо 3693 вписать свой код для шлагбаума
-  //SendCame4(3693);
-  //delay(5000);
-  //return;
-
   // при получении кода выводим его в терминал
   if (lastCode > 0)
   {
@@ -31,37 +26,7 @@ void loop() {
   }
 }
 
-
-// функция отправляет код в эфир
-void SendCame4(long Code) {
-  for (int j = 0; j < 7; j++) { // посылку посылаем 4 раза подряд.
-    // время стартового импульса
-    digitalWrite(txPin, HIGH);
-    delayMicroseconds(320);
-    digitalWrite(txPin, LOW);
-    for (int i = 12; i > 0; i--) {
-      byte b = bitRead(Code, i - 1); // побитово перебираем и посылаем код
-      if (b) {
-        digitalWrite(txPin, LOW); // 1
-        delayMicroseconds(640);
-        digitalWrite(txPin, HIGH);
-        delayMicroseconds(320);
-      }
-      else {
-        digitalWrite(txPin, LOW); // 0
-        delayMicroseconds(320);
-        digitalWrite(txPin, HIGH);
-        delayMicroseconds(640);
-      }
-    }
-    digitalWrite(txPin, LOW);
-    delayMicroseconds(11520);
-  }
-}
-
-
-// ВЕСЬ КОД НИЖЕ - ПРИЕМ
-
+// ПРИЕМ
 #define MAX_DELTA 200
 // длительность импульсов может плавать в зависимости от заряда батареии - макс допуск 200 мкс
 boolean CheckValue(unsigned int base, unsigned int value)
