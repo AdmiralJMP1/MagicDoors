@@ -18,7 +18,6 @@ void loop()
   SendCame4(3237);
   delay(300); // меньше 300 не работает
   Serial.println(cod);
-  //return;
   }
 }
 
