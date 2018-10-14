@@ -1,11 +1,8 @@
-#define txPin 8 //пин передатчика
 #define rxPin 2 //пин приемника
 
 void setup()
 {
   pinMode(rxPin, INPUT);
-  pinMode(txPin, OUTPUT);
-
 
   Serial.begin(9600); // тут поставьте свою скорость
   Serial.println("Came started");
