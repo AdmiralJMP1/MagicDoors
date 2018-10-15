@@ -11,6 +11,7 @@
 
 void setup() {
   Serial.begin(9600);
+  Serial.println("Scaning");
   
   //Initialize receiver on interrupt 0 (= digital pin 2), calls the callback "showCode"
   //after 3 identical codes have been received in a row. (thus, keep the button pressed
