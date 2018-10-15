@@ -19,7 +19,7 @@ void loop()
 {
   transmit(BTNA);
   Serial.println("Sended");
-  delay(1000);
+  delay(300);
 }
 
 
